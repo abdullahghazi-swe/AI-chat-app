@@ -3,6 +3,7 @@ export default function Form() {
         <div>
             <form>
                 <input type="text" placeholder="Ask AI"/>
+                <button>↑</button>
             </form>
         </div>
     )

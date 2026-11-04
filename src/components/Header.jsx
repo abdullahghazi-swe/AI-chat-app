@@ -3,8 +3,8 @@ export default function Header() {
         <header>
             <div className="logo">AI Chat</div>
             <div className="options">
-                <button>NEW</button>
-                <button>SET</button>
+                <button className="new-chat">🖊️ New Chat</button>
+                <button className="setting">⚙️</button>
             </div>
         </header>
     )

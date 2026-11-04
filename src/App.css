@@ -28,6 +28,41 @@ header {
   font-size: 20px;
 }
 
+.options {
+  display: flex;
+  gap: 8px;
+} 
+
+.options .new-chat {
+  background: rgb(41, 41, 41);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 16px;
+}
+
+.options .new-chat:hover {
+  background: rgb(54, 54, 54);
+}
+
+.options .new-chat:active {
+  background: rgb(68, 68, 68);
+}
+
+.options .setting {
+  background: transparent;
+  border: 1px solid rgb(68, 68, 68);
+  border-radius: 10px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.options .setting:hover {
+  background: rgb(44, 44, 44);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -54,6 +89,10 @@ h3 {
   margin-bottom: 20px;
 }
 
+form {
+  position: relative;
+}
+
 input {
   padding: 15px 25px;
   width: 700px;
@@ -62,4 +101,20 @@ input {
   font-size: 17px;
   font-family: inherit;
   outline: none;
+}
+
+form > button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(68, 68, 68);
+  color: white;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  padding-bottom: 2px;
+  cursor: pointer;
 }
