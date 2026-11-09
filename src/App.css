@@ -141,4 +141,33 @@ form > button {
 
 .message-box {
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message {
+  text-align: start;
+  font-size: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+
+.message.user {
+  justify-content: end;
+}
+
+.content {
+  width: 100%;
+}
+
+.content.user {
+  width: fit-content;
+  max-width: 70%;
+  background-color: rgb(61, 61, 61);
+  padding: 12px 16px;
+  border-radius: 24px;
+  font-size: 17px;
 }

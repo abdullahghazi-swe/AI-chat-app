@@ -1,13 +1,17 @@
+import { getResponse } from "../services/api";
+
 export default function Form(props) {
 
-    function handleMessages(formData) {
+    async function handleMessages(formData) {
         const message = formData.get('message');
 
         const newMessage = {
             sender: 'user',
-            text: message
+            content: message
         }
         props.addMessage(msgs => [...msgs, newMessage]);
+        const response = getResponse(newMessage);
+        props.addMessage(msgs => [...msgs, response]);
     }
 
     return (
