@@ -5,6 +5,10 @@ export default function Form(props) {
     async function handleMessages(formData) {
         const message = formData.get('message');
 
+        if (!message || message.trim() == '') {
+            return;
+        }
+
         const newMessage = {
             sender: 'user',
             content: message

@@ -9,9 +9,11 @@ export default function Main({messages, setMessages}) {
 
     return (
         <main>
-            {!noMessages && <section className="message-box"> {messageList}</section>}
-            { noMessages && <h3>What would you like to learn today?</h3>}
-            <Form addMessage={setMessages} noMessages={noMessages} />
+            <section className="main-content">
+                {!noMessages && <section className="message-box"> {messageList}</section>}
+                { noMessages && <h3>What would you like to learn today?</h3>}
+                <Form addMessage={setMessages} noMessages={noMessages} />
+            </section>
         </main>
     )
 }
