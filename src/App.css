@@ -135,7 +135,7 @@ form {
   width: 100%;
   min-height: 52px;
   max-width: 750px;
-  border-radius: 50px;
+  border-radius: 2rem;
   border: 1px solid rgba(0,0,0,0.3);
   background-color: #ffffff;
   cursor: text;
@@ -149,16 +149,32 @@ form {
   outline: none;
   resize: none;
   background: transparent;
-  overflow: hidden;
+  overflow: auto;
   field-sizing: content;
   left: 28px;
   top: 15px;
-  max-width: 85%;
+  max-width: 89%;
+  padding-right: 1%;
   height: auto;
+  max-height: 220px;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-color: rgba(0,0,0,0.2) transparent;
 }
 
-.prompt-area.fixed {
-  bottom: 0;
+.prompt-area::-webkit-scrollbar {
+  width: 6px;
+  height: 0;
+}
+.prompt-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.prompt-area::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+.prompt-area::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 form > button {

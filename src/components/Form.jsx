@@ -21,34 +21,40 @@ export default function Form(props) {
         props.addMessage(msgs => [...msgs, newMessage]);
         const response = getResponse(newMessage);
         props.addMessage(msgs => [...msgs, response]);
-
-        dynamicHeight();
+        formRef.current.style.height = "auto";
     }
 
-    function makeFocus() {
-        if (inputField.current) {
-            inputField.current.focus()
-        }
+    function makeFocus(e) {
+        if (e.target.closest("button")) return;
+
+        inputField.current?.focus()
+        
     }
 
     function dynamicHeight() {
         const formBox = formRef.current.getBoundingClientRect();
-        const inputBox = inputField.current;
+        const inputBox = inputField.current.getBoundingClientRect();
         
         const currentHeight = formBox.height;
-
-        const moreLine = inputBox.scrollHeight > currentHeight - 30;
-        const lessLine = currentHeight - inputBox.scrollHeight > 40;
+        
+        const moreLine = inputBox.height > currentHeight - 30;
+        const lessLine = currentHeight - inputBox.height > 40;
 
         if (lessLine || moreLine) {
-            formRef.current.style.height = `${inputBox.scrollHeight + 32}px`;
+            formRef.current.style.height = `${inputBox.height + 32}px`;
         }
+    }
+
+    function handleKey(e) {
+        if (e.key !== "Enter" || e.shiftKey) return;
+        e.preventDefault();
+        e.currentTarget.form?.requestSubmit();
     }
 
     return (
         <div className={`form-box ${props.noMessages ? 'form-start': 'form-fixed'}`}>
             <form ref={formRef} onClick={makeFocus} action={handleMessages}>
-                <textarea onInput={dynamicHeight} ref={inputField} type="text" name="message" placeholder="Ask AI" className={`prompt-area ${props.noMessages ? '': 'fixed'}`} />
+                <textarea onKeyDown={handleKey} onInput={dynamicHeight} ref={inputField} type="text" name="message" placeholder="Ask AI" className="prompt-area" />
                 <button>↑</button>
             </form>
         </div>
