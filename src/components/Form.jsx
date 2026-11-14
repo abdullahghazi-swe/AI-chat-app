@@ -22,6 +22,7 @@ export default function Form(props) {
         const response = getResponse(newMessage);
         props.addMessage(msgs => [...msgs, response]);
         formRef.current.style.height = "auto";
+        inputField.current.blur();
     }
 
     function makeFocus(e) {
@@ -46,7 +47,9 @@ export default function Form(props) {
     }
 
     function handleKey(e) {
-        if (e.key !== "Enter" || e.shiftKey) return;
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (e.key !== "Enter" || e.shiftKey || isMobile) return;
+
         e.preventDefault();
         e.currentTarget.form?.requestSubmit();
     }

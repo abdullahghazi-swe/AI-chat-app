@@ -26,7 +26,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 clamp(18px, 5vw, 30px);
   font-size: 20px;
   width: 100%;
 }
@@ -89,10 +89,18 @@ main::-webkit-scrollbar {
   align-items: center;
   flex: 1;
   font-size: 22px;
-  padding: 30px;
+  padding: clamp(12px, 2vw, 30px);
   padding-top: 0;
   width: 100%;
   max-width: 800px;
+}
+
+.note {
+  font-size: 24px;
+  font-weight: 300;
+  color: rgb(220, 221, 221);
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 footer {
@@ -102,17 +110,11 @@ footer {
   text-align: center;
   width: 100%;
   color: rgb(168, 168, 168);
-  font-size: 14px;
+  font-size: clamp(11px, 2vw, 14px);
   padding: 12px 0;
   display: flex;
   align-items: end;
   justify-content: center;
-}
-
-h3 {
-  font-weight: 300;
-  color: rgb(220, 221, 221);
-  margin-bottom: 20px;
 }
 
 .form-box {
@@ -151,9 +153,9 @@ form {
   background: transparent;
   overflow: auto;
   field-sizing: content;
-  left: 28px;
+  left: clamp(16px, 2vw, 28px);
   top: 15px;
-  max-width: 89%;
+  max-width: clamp(80%, 70vw, 89%);
   padding-right: 1%;
   height: auto;
   max-height: 220px;
